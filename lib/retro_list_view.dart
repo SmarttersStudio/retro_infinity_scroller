@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:retroinfinitescroll/enums/enums.dart';
+import 'enums.dart';
 
 class RetroListView extends StatelessWidget {
   final Axis scrollDirection;

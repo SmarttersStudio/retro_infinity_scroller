@@ -10,7 +10,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: InfiniteScrollPage(),
-        appBar: AppBar(title: Text("Retro Scroll")),
+        appBar: AppBar(title: Text("Retro Scroll Page")),
       )));
 }
 

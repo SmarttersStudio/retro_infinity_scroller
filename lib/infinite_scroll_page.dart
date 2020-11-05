@@ -11,18 +11,15 @@ class InfiniteScrollPage extends StatefulWidget {
 
 class _InfiniteScrollPageState extends State<InfiniteScrollPage> {
   bool _hasMore;
-  int _pageNumber;
   bool _error;
   bool _loading;
-  final int _defaultPhotosPerPageCount = 10;
+  final int _limit = 10;
   List<Photo> _photos;
-  final int _loadMoreThreshold = 5;
 
   @override
   void initState() {
     super.initState();
     _hasMore = true;
-    _pageNumber = 1;
     _error = false;
     _loading = true;
     _photos = [];
@@ -41,50 +38,31 @@ class _InfiniteScrollPageState extends State<InfiniteScrollPage> {
             : _error
                 ? InfiniteScrollStateType.error
                 : InfiniteScrollStateType.loaded,
-        itemBuilder: (c, index) {
-          if (index == _photos.length - _loadMoreThreshold) {
-            fetchPhotos();
-          }
-//          if (_hasMore) {
-//            fetchPhotos();
-//          }
-          if (index == _photos.length) {
-            if (_error) {
-              return Center(
-                  child: InkWell(
-                onTap: () {
-                  setState(() {
-                    _loading = true;
-                    _error = false;
-                    fetchPhotos();
-                  });
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(16),
-                  child: Text("Error while loading photos, tap to try agin"),
+        itemBuilder: (ctx, position) {
+          if (position >= _photos.length) {
+            if (_hasMore) {
+              fetchPhotos();
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(
+                  child: CircularProgressIndicator(),
                 ),
-              ));
-            } else {
-              return Center(
-                  child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: CircularProgressIndicator(),
-              ));
-            }
+              );
+            } else
+              return Container();
           }
-          final Photo photo = _photos[index];
           return Card(
             child: Column(
               children: <Widget>[
                 Image.network(
-                  photo.thumbnailUrl,
+                  _photos[position].thumbnailUrl,
                   fit: BoxFit.fitWidth,
                   width: double.infinity,
                   height: 160,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Text(photo.title,
+                  child: Text(_photos[position].title,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                 ),
@@ -98,13 +76,12 @@ class _InfiniteScrollPageState extends State<InfiniteScrollPage> {
 
   Future<void> fetchPhotos() async {
     try {
-      final response = await http.get(
-          "https://jsonplaceholder.typicode.com/photos?_page=$_pageNumber");
+      final response =
+          await http.get("https://jsonplaceholder.typicode.com/photos?_page=1");
       List<Photo> fetchedPhotos = Photo.parseList(json.decode(response.body));
       setState(() {
-        _hasMore = fetchedPhotos.length == _defaultPhotosPerPageCount;
+        _hasMore = fetchedPhotos.length == _limit;
         _loading = false;
-        _pageNumber = _pageNumber + 1;
         _photos.addAll(fetchedPhotos);
       });
     } catch (e) {

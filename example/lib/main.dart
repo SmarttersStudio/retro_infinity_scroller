@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:retroinfinityscroll_example/pages/infinity_scroll_with_android_refresh_and_load_more_page.dart';
 import 'package:retroinfinityscroll_example/pages/infinity_scroll_with_android_refresh_page.dart';
+import 'package:retroinfinityscroll_example/pages/infinity_scroll_with_ios_refresh_and_load_more_page.dart';
+import 'package:retroinfinityscroll_example/pages/inifnity_scroll_with_ios_refresh_page.dart';
 import 'package:retroinfinityscroll_example/pages/load_more_retro_infinity_scroll_page.dart';
 import 'package:retroinfinityscroll_example/pages/simple_retro_infinity_scroll_page.dart';
 
@@ -19,7 +22,7 @@ class ChooseOptionsPage extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             RaisedButton(
               onPressed: () => Navigator.push(
@@ -42,7 +45,30 @@ class ChooseOptionsPage extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (ctx) =>
                           InfinityScrollWithAndroidRefreshPage())),
-              child: Text('With Android Refresh and LoadMore Implementation'),
+              child: Text('With Android Refresh Implementation only'),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (ctx) => InfinityScrollWithIosRefreshPage())),
+              child: Text('With IOS Refresh Implementation only'),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (ctx) =>
+                          InfinityScrollWithAndroidRefreshAndLoadMorePage())),
+              child: Text('With Android Refresh and loadmore Implementation'),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (ctx) =>
+                          InfinityScrollWithIosRefreshAndLoadMorePage())),
+              child: Text('With IOS Refresh and loadmore Implementation'),
             ),
           ],
         ),

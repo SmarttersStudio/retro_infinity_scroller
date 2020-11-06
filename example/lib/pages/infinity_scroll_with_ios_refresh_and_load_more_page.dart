@@ -36,6 +36,10 @@ class _InfinityScrollWithIosRefreshAndLoadMorePageState
       body: RetroListView(
         hasMore: _hasMore,
         itemCount: _photos.length,
+        physics:
+            BouncingScrollPhysics(), // To be used in if running on Android Devices
+        // and [refreshIndicatorType]
+        // is [RefreshIndicatorType.ios] or [RefreshIndicatorType.custom]
         stateType: _loading
             ? InfiniteScrollStateType.loading
             : _error

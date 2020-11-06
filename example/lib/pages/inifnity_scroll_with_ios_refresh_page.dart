@@ -32,6 +32,10 @@ class _InfinityScrollWithIosRefreshPageState
       appBar: AppBar(title: Text("With IOS Refresh")),
       body: RetroListView(
         hasMore: false,
+        physics:
+            BouncingScrollPhysics(), // To be used in if running on Android Devices
+        // and [refreshIndicatorType]
+        // is [RefreshIndicatorType.ios] or [RefreshIndicatorType.custom]
         itemCount: _photos.length,
         stateType: _loading
             ? InfiniteScrollStateType.loading

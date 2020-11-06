@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:retroinfinityscroll_example/pages/infinity_scroll_with_android_refresh_and_load_more_page.dart';
 import 'package:retroinfinityscroll_example/pages/infinity_scroll_with_android_refresh_page.dart';
+import 'package:retroinfinityscroll_example/pages/infinity_scroll_with_animated_custom_refresh_and_load_more_page.dart';
+import 'package:retroinfinityscroll_example/pages/infinity_scroll_with_custom_refresh_and_load_more_page.dart';
 import 'package:retroinfinityscroll_example/pages/infinity_scroll_with_ios_refresh_and_load_more_page.dart';
 import 'package:retroinfinityscroll_example/pages/inifnity_scroll_with_ios_refresh_page.dart';
 import 'package:retroinfinityscroll_example/pages/load_more_retro_infinity_scroll_page.dart';
@@ -69,6 +71,25 @@ class ChooseOptionsPage extends StatelessWidget {
                       builder: (ctx) =>
                           InfinityScrollWithIosRefreshAndLoadMorePage())),
               child: Text('With IOS Refresh and loadmore implementation'),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (ctx) =>
+                          InfinityScrollWithCustomRefreshAndLoadMorePage())),
+              child: Text('With Custom Refresh and loadmore implementation'),
+            ),
+            RaisedButton(
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (ctx) =>
+                          InfinityScrollWithAnimatedCustomRefreshAndLoadMorePage())),
+              child: Text(
+                'With Animated Custom Refresh',
+                textAlign: TextAlign.center,
+              ),
             ),
           ],
         ),

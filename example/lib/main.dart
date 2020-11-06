@@ -60,7 +60,7 @@ class ChooseOptionsPage extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (ctx) =>
                           InfinityScrollWithAndroidRefreshAndLoadMorePage())),
-              child: Text('With Android Refresh and loadmore Implementation'),
+              child: Text('With Android Refresh and loadmore implementation'),
             ),
             RaisedButton(
               onPressed: () => Navigator.push(
@@ -68,7 +68,7 @@ class ChooseOptionsPage extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (ctx) =>
                           InfinityScrollWithIosRefreshAndLoadMorePage())),
-              child: Text('With IOS Refresh and loadmore Implementation'),
+              child: Text('With IOS Refresh and loadmore implementation'),
             ),
           ],
         ),

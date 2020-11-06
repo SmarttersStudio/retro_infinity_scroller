@@ -25,23 +25,23 @@ class RetroListView extends StatefulWidget {
 
   /// To Display an empty screen when the list is empty
   ///
-  /// Defaults to yielding a Text wrapped with Center with Text 'No Data Found'
+  /// Defaults to yielding a [Text] wrapped with [Center] with Text ['No Data Found']
   final Widget emptyWidget;
 
   /// To Display an error screen when any sort of error is fetched from the API
   ///
-  /// Defaults to yielding a Text wrapped with Center with Text 'Some error occurred'
+  /// Defaults to yielding a [Text] wrapped with [Center] with Text ['Some error occurred']
   final Widget errorWidget;
 
   /// To Display a loading screen when the data is getting fetched from the API
   ///
-  /// Defaults to yielding a CircularProgressIndicator wrapped with Center
+  /// Defaults to yielding a [CircularProgressIndicator] wrapped with [Center]
   final Widget loadingWidget;
 
   /// To Display a loading widget below the last row of the list
   /// when the more data is getting fetched
   ///
-  /// Defaults to yielding a CircularProgressIndicator wrapped with Center
+  /// Defaults to yielding a [CircularProgressIndicator] wrapped with [Center]
   final Widget loadMoreWidget;
 
   /// Set true if you have more data to load

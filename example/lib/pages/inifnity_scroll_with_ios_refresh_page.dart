@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';
-import 'models/photo.dart';
+import 'package:retroinfinityscroll_example/models/photo.dart';
 
 /// A dummy implementation of plugin using the IOS refresh indicator
 class InfinityScrollWithIosRefreshPage extends StatefulWidget {

@@ -2,24 +2,27 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';
-import 'models/photo.dart';
+import 'package:retroinfinityscroll_example/models/photo.dart';
 
 /// A dummy implementation of plugin using the android refresh indicator
-class InfinityScrollWithAndroidRefreshPage extends StatefulWidget {
+class InfinityScrollWithIosRefreshAndLoadMorePage extends StatefulWidget {
   @override
-  _InfinityScrollWithAndroidRefreshPageState createState() =>
-      _InfinityScrollWithAndroidRefreshPageState();
+  _InfinityScrollWithIosRefreshAndLoadMorePageState createState() =>
+      _InfinityScrollWithIosRefreshAndLoadMorePageState();
 }
 
-class _InfinityScrollWithAndroidRefreshPageState
-    extends State<InfinityScrollWithAndroidRefreshPage> {
+class _InfinityScrollWithIosRefreshAndLoadMorePageState
+    extends State<InfinityScrollWithIosRefreshAndLoadMorePage> {
+  bool _hasMore; // determines if more to load
   bool _error;
   bool _loading;
+  final int _limit = 10; // max count of data to show on the list
   List<Photo> _photos;
 
   @override
   void initState() {
     super.initState();
+    _hasMore = true;
     _error = false;
     _loading = true;
     _photos = [];
@@ -29,17 +32,18 @@ class _InfinityScrollWithAndroidRefreshPageState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("With Android Refresh")),
+      appBar: AppBar(title: Text("With Ios Refresh and loadmore")),
       body: RetroListView(
-        hasMore: false,
+        hasMore: _hasMore,
         itemCount: _photos.length,
         stateType: _loading
             ? InfiniteScrollStateType.loading
             : _error
                 ? InfiniteScrollStateType.error
                 : InfiniteScrollStateType.loaded,
-        refreshIndicatorType: RefreshIndicatorType
-            .android, // To Implement Android Refresh Indicator
+        onLoadMore: () => fetchPhotos(), // Implements loadmore
+        refreshIndicatorType:
+            RefreshIndicatorType.ios, // To Implement Android Refresh Indicator
         itemBuilder: (ctx, position) {
           return Card(
             child: Column(
@@ -70,6 +74,7 @@ class _InfinityScrollWithAndroidRefreshPageState
           await http.get("https://jsonplaceholder.typicode.com/photos?_page=1");
       List<Photo> fetchedPhotos = Photo.parseList(json.decode(response.body));
       setState(() {
+        _hasMore = fetchedPhotos.length == _limit;
         _loading = false;
         _photos.addAll(fetchedPhotos);
       });

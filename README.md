@@ -1,18 +1,80 @@
-# Retro Infinity Scoll
+# retro_infinity_scroll
 
-A Flutter plugin to implement infinity scroll
+A Flutter plugin to implement infinity scroll and inflact paginated data into a ListView
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+- Add ```retro_infinity_scroll``` as dependancy in ```pubspec.yaml```
+```
+dependencies:
+  retro_infinity_scroll: <latest version>
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Import plugin class to your file
+```import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';```
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` under the same
-directory. You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
+#### Simple use
+```dart
+RetroListView(
+  hasMore: false,
+  itemCount: _photos.length,
+  stateType: _loading
+      ? InfiniteScrollStateType.loading
+      : _error
+        ? InfiniteScrollStateType.error
+        : InfiniteScrollStateType.loaded,
+  itemBuilder: (context, index)=>Card(
+      child: Column(
+        children: <Widget>[
+          Image.network(
+            _photos[index].thumbnailUrl,
+            fit: BoxFit.fitWidth,
+            width: double.infinity,
+            height: 160,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(_photos[index].title,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          ),
+        ],
+      ),
+    )
+)
+```
+#### Using of loadmore
+```dart
+RetroListView(
+  hasMore: _hasMore,
+  itemCount: _photos.length,
+  stateType: _isLoading
+      ? InfiniteScrollStateType.loading
+      : _error
+          ? InfiniteScrollStateType.error
+          : InfiniteScrollStateType.loaded,
+  onLoadMore: () => fetchPhotos(), // Implements loadmore
+  itemBuilder: (context, index) {
+    return Card(
+      child: Column(
+        children: <Widget>[
+          Image.network(
+            _photos[index].thumbnailUrl,
+            fit: BoxFit.fitWidth,
+            width: double.infinity,
+            height: 160,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: Text(_photos[index].title,
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          ),
+        ],
+      ),
+    );
+  },
+)
+```
+####
+####
+####
+####

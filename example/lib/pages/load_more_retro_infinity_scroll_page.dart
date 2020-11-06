@@ -5,6 +5,7 @@ import 'package:retro_infinity_scroll/retro_list_view.dart';
 import 'package:http/http.dart' as http;
 import 'package:retroinfinityscroll_example/models/photo.dart';
 
+/// A dummy implementation of plugin using loadmore only
 class LoadMoreInfinityScrollPage extends StatefulWidget {
   @override
   _LoadMoreInfinityScrollPageState createState() =>

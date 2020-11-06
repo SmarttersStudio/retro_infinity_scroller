@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';
 import 'package:retroinfinityscroll_example/models/photo.dart';
 
-/// A dummy implementation of plugin using the android refresh indicator
+/// A dummy implementation of plugin using the android refresh indicator and loadmore
 class InfinityScrollWithIosRefreshAndLoadMorePage extends StatefulWidget {
   @override
   _InfinityScrollWithIosRefreshAndLoadMorePageState createState() =>

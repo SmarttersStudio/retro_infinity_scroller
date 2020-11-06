@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:retro_infinity_scroll/enums.dart';
 import 'package:retro_infinity_scroll/retro_list_view.dart';
 import 'package:http/http.dart' as http;
-import 'photo.dart';
+import 'models/photo.dart';
 
 class LoadMoreInfinityScrollPage extends StatefulWidget {
   @override

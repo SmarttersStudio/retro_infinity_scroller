@@ -2,7 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';
-import 'photo.dart';
+
+import 'models/photo.dart';
 
 /// A dummy implementation of plugin without using the refresh indicator and loadmore
 class SimpleRetroInfinityPage extends StatefulWidget {

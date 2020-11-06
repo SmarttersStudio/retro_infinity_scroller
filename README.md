@@ -1,4 +1,4 @@
-# retroinfinityscroll
+# Retro Infinity Scoll
 
 A Flutter plugin to implement infinity scroll
 

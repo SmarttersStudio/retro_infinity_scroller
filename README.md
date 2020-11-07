@@ -28,7 +28,7 @@ RetroListView(
         ? InfiniteScrollStateType.error
         : InfiniteScrollStateType.loaded,
   itemBuilder: (context, index)=>//Your item
-)</pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+)</pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=400></tr>
     <tr><td> <b>Using loadmore</b> </td></tr>
   <tr>
     <td>
@@ -44,7 +44,7 @@ RetroListView(
   onLoadMore: () => fetchPhotos(), // Implements loadmore
   itemBuilder: (context, index)=>//<Your item>
 ),
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=400></tr>
     <tr><td> <b>Android style refresh</b> </td></tr>
    <tr>
     <td>
@@ -64,7 +64,7 @@ RetroListView(
       },
   itemBuilder: (context, index)=>//<Your item>
 )
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=400></tr>
     <tr><td> <b>IOS style refresh</b> </td></tr>
    <tr>
     <td>
@@ -87,17 +87,17 @@ RetroListView(
   },
   itemBuilder: (context, index)=>//<Your item>
 )
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=400></tr>
     <tr><td> <b>TITLE</b> </td></tr>
    <tr>
     <td>
       <pre>
      CODE
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=400></tr>
     <tr><td> <b>TITLE</b> </td></tr>
    <tr>
     <td>
       <pre>
   CODE
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=400></tr>
   </table>

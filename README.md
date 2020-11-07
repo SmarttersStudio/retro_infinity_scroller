@@ -11,10 +11,16 @@ dependencies:
 ```
 
 - Import plugin class to your file
-```import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';```
+```
+import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';
+```
 
-#### Simple use
-```dart
+
+<table>
+  <tr><td> <b>Simple use</b> </td></tr>
+  <tr>
+    <td>
+      <pre>
 RetroListView(
   hasMore: false,
   itemCount: _photos.length,
@@ -23,27 +29,12 @@ RetroListView(
       : _error
         ? InfiniteScrollStateType.error
         : InfiniteScrollStateType.loaded,
-  itemBuilder: (context, index)=>Card(
-      child: Column(
-        children: <Widget>[
-          Image.network(
-            _photos[index].thumbnailUrl,
-            fit: BoxFit.fitWidth,
-            width: double.infinity,
-            height: 160,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(_photos[index].title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-          ),
-        ],
-      ),
-    )
-)
-```
-#### Using of loadmore
-```dart
+  itemBuilder: (context, index)=>//Your item
+)</code></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+    <tr><td> <b>Using loadmore</b> </td></tr>
+  <tr>
+    <td>
+      <pre>
 RetroListView(
   hasMore: _hasMore,
   itemCount: _photos.length,
@@ -53,28 +44,65 @@ RetroListView(
           ? InfiniteScrollStateType.error
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
-  itemBuilder: (context, index) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Image.network(
-            _photos[index].thumbnailUrl,
-            fit: BoxFit.fitWidth,
-            width: double.infinity,
-            height: 160,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(_photos[index].title,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-          ),
-        ],
-      ),
-    );
-  },
+  itemBuilder: (context, index)=>//<Your item>
+),
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+    <tr><td> <b>Android style refresh</b> </td></tr>
+   <tr>
+    <td>
+      <pre>
+RetroListView(
+  hasMore: _hasMore,
+  itemCount: _photos.length,
+  stateType: _loading
+      ? InfiniteScrollStateType.loading
+      : _error
+          ? InfiniteScrollStateType.error
+          : InfiniteScrollStateType.loaded,
+  onLoadMore: () => fetchPhotos(), // Implements loadmore
+  // To Implement Android Refresh Indicator
+  refreshIndicatorType: RefreshIndicatorType.android,
+      onRefresh: (){
+        return Future.delayed(Duration(seconds: 2));
+      },
+  itemBuilder: (context, index)=>//<Your item>
 )
-```
-####
-####
-####
-####
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+    <tr><td> <b>IOS style refresh</b> </td></tr>
+   <tr>
+    <td>
+      <pre>
+RetroListView(
+  hasMore: _hasMore,
+  itemCount: _photos.length,
+  physics: BouncingScrollPhysics(),
+  // To be used in if running on Android Devices
+  // and [refreshIndicatorType]
+  // is [RefreshIndicatorType.ios] or [RefreshIndicatorType.custom]
+  stateType: _loading
+      ? InfiniteScrollStateType.loading
+      : _error
+          ? InfiniteScrollStateType.error
+          : InfiniteScrollStateType.loaded,
+  onLoadMore: () => fetchPhotos(), // Implements loadmore
+  // To Implement IOS Sliver refresh indicator
+  refreshIndicatorType: RefreshIndicatorType.ios,
+  onRefresh: (){
+    return Future.delayed(Duration(seconds: 2));
+  },
+  itemBuilder: (context, index)=>//<Your item>
+)
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+    <tr><td> <b>TITLE</b> </td></tr>
+   <tr>
+    <td>
+      <pre>
+     CODE
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+    <tr><td> <b>TITLE</b> </td></tr>
+   <tr>
+    <td>
+      <pre>
+  CODE
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+  </table>

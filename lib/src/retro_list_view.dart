@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'enums.dart';
+part of retro_infinity_scroll;
 
 class RetroListView extends StatefulWidget {
   final Axis scrollDirection;
@@ -251,11 +248,11 @@ class _RetroListViewState extends State<RetroListView> {
             controller: isScrollable ? _controller : null,
             addSemanticIndexes: widget.addSemanticIndexes,
             cacheExtent: widget.cacheExtent,
-            clipBehavior: widget.clipBehavior,
+            // clipBehavior: widget.clipBehavior,
             dragStartBehavior: widget.dragStartBehavior,
             keyboardDismissBehavior: widget.keyboardDismissBehavior,
             primary: widget.primary,
-            restorationId: widget.restorationId,
+            // restorationId: widget.restorationId,
             reverse: widget.reverse,
             semanticChildCount: widget.semanticChildCount,
             itemExtent: widget.itemExtent,

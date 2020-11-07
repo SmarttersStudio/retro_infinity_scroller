@@ -18,7 +18,7 @@ dependencies:
   <tr><td> <b>Simple use</b> </td></tr>
   <tr>
     <td>
-      <pre>
+      <code>
 RetroListView(
   hasMore: false,
   itemCount: _photos.length,
@@ -28,7 +28,7 @@ RetroListView(
         ? InfiniteScrollStateType.error
         : InfiniteScrollStateType.loaded,
   itemBuilder: (context, index)=>//Your item
-)</pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=600></tr>
+)</code></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=400></tr>
     <tr><td> <b>Using loadmore</b> </td></tr>
   <tr>
     <td>

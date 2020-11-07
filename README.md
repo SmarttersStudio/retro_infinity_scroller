@@ -108,7 +108,7 @@ RetroListView(
   itemCount: _photos.length,
   stateType: InfiniteScrollStateType.error,
   errorWidget: Center(child: Text('Some error occurred')),
-  itemBuilder: (ctx, index)=>//<Your item>
+  itemBuilder: (ctx, index)=>//Your item
   },
 )      </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/error.jpg" width=300></tr>
     <tr><td> <b>Custom empty widget</b> </td></tr>
@@ -120,7 +120,7 @@ RetroListView(
   itemCount: 0,
   stateType: InfiniteScrollStateType.loaded,
   emptyWidget: Center(child: Text('No data found')),
-  itemBuilder: (ctx, index)=>//<Your item>
+  itemBuilder: (ctx, index)=>//Your item
   },
 )
       </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/empty.jpg" width=300></tr>

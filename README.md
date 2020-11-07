@@ -23,23 +23,7 @@ RetroListView(
       : _error
         ? InfiniteScrollStateType.error
         : InfiniteScrollStateType.loaded,
-  itemBuilder: (context, index)=>Card(
-      child: Column(
-        children: <Widget>[
-          Image.network(
-            _photos[index].thumbnailUrl,
-            fit: BoxFit.fitWidth,
-            width: double.infinity,
-            height: 160,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(_photos[index].title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-          ),
-        ],
-      ),
-    )
+  itemBuilder: (context, index)=>//<Your item>
 )
 ```
 #### Using of loadmore
@@ -53,28 +37,51 @@ RetroListView(
           ? InfiniteScrollStateType.error
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
-  itemBuilder: (context, index) {
-    return Card(
-      child: Column(
-        children: <Widget>[
-          Image.network(
-            _photos[index].thumbnailUrl,
-            fit: BoxFit.fitWidth,
-            width: double.infinity,
-            height: 160,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Text(_photos[index].title,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-          ),
-        ],
-      ),
-    );
-  },
+  itemBuilder: (context, index)=>//<Your item>
 )
 ```
-####
-####
-####
+#### Android style refresh
+```dart
+RetroListView(
+  hasMore: _hasMore,
+  itemCount: _photos.length,
+  stateType: _loading
+      ? InfiniteScrollStateType.loading
+      : _error
+          ? InfiniteScrollStateType.error
+          : InfiniteScrollStateType.loaded,
+  onLoadMore: () => fetchPhotos(), // Implements loadmore
+  refreshIndicatorType: RefreshIndicatorType
+      .android, // To Implement Android Refresh Indicator
+      onRefresh: (){
+        return Future.delayed(Duration(seconds: 2));
+      },
+  itemBuilder: (context, index)=>//<Your item>
+)
+```
+#### IOS style refresh
+```dart
+RetroListView(
+  hasMore: _hasMore,
+  itemCount: _photos.length,
+  physics: BouncingScrollPhysics(), /// To be used in if running on Android Devices
+  /// and [refreshIndicatorType]
+  /// is [RefreshIndicatorType.ios] or [RefreshIndicatorType.custom]
+  stateType: _loading
+      ? InfiniteScrollStateType.loading
+      : _error
+          ? InfiniteScrollStateType.error
+          : InfiniteScrollStateType.loaded,
+  onLoadMore: () => fetchPhotos(), // Implements loadmore
+  refreshIndicatorType: RefreshIndicatorType.ios, // To Implement IOS Sliver refresh indicator
+  onRefresh: (){
+    return Future.delayed(Duration(seconds: 2));
+  },
+  itemBuilder: (context, index)=>//<Your item>
+)
+```
+#### Custom refresh
+```dart
+
+```
 ####

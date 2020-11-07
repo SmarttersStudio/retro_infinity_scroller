@@ -36,7 +36,7 @@ RetroListView(
         ? InfiniteScrollStateType.error
         : InfiniteScrollStateType.loaded,
   itemBuilder: (context, index)=>//Your item
-)</code></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+)</code></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/loading.jpg" width=300></tr>
     <tr><td> <b>Using loadmore</b> </td></tr>
   <tr>
     <td>
@@ -52,7 +52,7 @@ RetroListView(
   onLoadMore: () => fetchPhotos(), // Implements loadmore
   itemBuilder: (context, index)=>//<Your item>
 ),
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+      </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/loadmore.jpg" width=300></tr>
     <tr><td> <b>Android style refresh</b> </td></tr>
    <tr>
     <td>
@@ -98,7 +98,7 @@ RetroListView(
   },
   itemBuilder: (context, index)=>//<Your item>
 )
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+      </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/ios_refresh.jpg" width=300></tr>
     <tr><td> <b>Custom error idget</b> </td></tr>
    <tr>
     <td>
@@ -110,7 +110,7 @@ RetroListView(
   errorWidget: Center(child: Text('Some error occurred')),
   itemBuilder: (ctx, index)=>//<Your item>
   },
-)      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+)      </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/error.jpg" width=300></tr>
     <tr><td> <b>Custom empty widget</b> </td></tr>
    <tr>
     <td>
@@ -123,5 +123,5 @@ RetroListView(
   itemBuilder: (ctx, index)=>//<Your item>
   },
 )
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+      </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/empty.jpg" width=300></tr>
   </table>

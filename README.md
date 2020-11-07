@@ -13,8 +13,12 @@ dependencies:
 - Import plugin class to your file
 ```import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';```
 
-#### Simple use
-```dart
+
+<table>
+  <tr><td> <b>Simple use</b> </td></tr>
+  <tr>
+    <td>
+      <pre>
 RetroListView(
   hasMore: false,
   itemCount: _photos.length,
@@ -23,11 +27,12 @@ RetroListView(
       : _error
         ? InfiniteScrollStateType.error
         : InfiniteScrollStateType.loaded,
-  itemBuilder: (context, index)=>//<Your item>
-)
-```
-#### Using of loadmore
-```dart
+  itemBuilder: (context, index)=>//Your item
+)</pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+    <tr><td> <b>Using loadmore</b> </td></tr>
+  <tr>
+    <td>
+      <pre>
 RetroListView(
   hasMore: _hasMore,
   itemCount: _photos.length,
@@ -38,10 +43,12 @@ RetroListView(
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
   itemBuilder: (context, index)=>//<Your item>
-)
-```
-#### Android style refresh
-```dart
+),
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+    <tr><td> <b>Android style refresh</b> </td></tr>
+   <tr>
+    <td>
+      <pre>
 RetroListView(
   hasMore: _hasMore,
   itemCount: _photos.length,
@@ -57,15 +64,17 @@ RetroListView(
       },
   itemBuilder: (context, index)=>//<Your item>
 )
-```
-#### IOS style refresh
-```dart
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+    <tr><td> <b>IOS style refresh</b> </td></tr>
+   <tr>
+    <td>
+      <pre>
 RetroListView(
   hasMore: _hasMore,
   itemCount: _photos.length,
   physics: BouncingScrollPhysics(), /// To be used in if running on Android Devices
-  /// and [refreshIndicatorType]
-  /// is [RefreshIndicatorType.ios] or [RefreshIndicatorType.custom]
+ /// and [refreshIndicatorType]
+ /// is [RefreshIndicatorType.ios] or [RefreshIndicatorType.custom]
   stateType: _loading
       ? InfiniteScrollStateType.loading
       : _error
@@ -78,8 +87,17 @@ RetroListView(
   },
   itemBuilder: (context, index)=>//<Your item>
 )
-```
-#### Custom refresh
-```dart
-
-```
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+    <tr><td> <b>TITLE</b> </td></tr>
+   <tr>
+    <td>
+      <pre>
+     CODE
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+    <tr><td> <b>TITLE</b> </td></tr>
+   <tr>
+    <td>
+      <pre>
+  CODE
+      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=200></tr>
+  </table>

@@ -75,11 +75,10 @@ RetroListView(
 RetroListView(
   hasMore: _hasMore,
   itemCount: _photos.length,
-  /// To be used in if running on Android Devices
+  // To be used in if running on Android Devices
+  // and [refreshIndicatorType]
+  // is [RefreshIndicatorType.ios] or [RefreshIndicatorType.custom]
   physics: BouncingScrollPhysics(),
- /// and [refreshIndicatorType]
- /// is [RefreshIndicatorType.ios]
- /// or [RefreshIndicatorType.custom]
   stateType: _loading
       ? InfiniteScrollStateType.loading
       : _error

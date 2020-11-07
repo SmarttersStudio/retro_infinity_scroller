@@ -67,7 +67,7 @@ RetroListView(
       },
   itemBuilder: (context, index)=>//<Your item>
 )
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+      </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/android_refresh.jpg" width=300></tr>
     <tr><td> <b>IOS style refresh</b> </td></tr>
    <tr>
     <td>

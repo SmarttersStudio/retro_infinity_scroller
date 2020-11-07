@@ -28,7 +28,7 @@ RetroListView(
         ? InfiniteScrollStateType.error
         : InfiniteScrollStateType.loaded,
   itemBuilder: (context, index)=>//Your item
-)</pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=400></tr>
+)</pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=600></tr>
     <tr><td> <b>Using loadmore</b> </td></tr>
   <tr>
     <td>

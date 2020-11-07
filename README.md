@@ -2,6 +2,12 @@
 
 A Flutter plugin to implement infinity scroll and inflact paginated data into a ListView
 
+## Features
+- Load more items when user reached the last
+- Swipe to refresh (default and customization available)
+- Custom Widget if list is empty or having errors
+- Custom Widget while loading the data
+
 ## Getting Started
 
 - Add ```retro_infinity_scroll``` as dependancy in ```pubspec.yaml```
@@ -67,7 +73,7 @@ RetroListView(
       },
   itemBuilder: (context, index)=>//<Your item>
 )
-      </pre></td><td><img src="https://via.placeholder.com/480x853.png/FD007B/FFFFFF?text=Hello" width=300></tr>
+      </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/android_refresh.jpg" width=300></tr>
     <tr><td> <b>IOS style refresh</b> </td></tr>
    <tr>
     <td>

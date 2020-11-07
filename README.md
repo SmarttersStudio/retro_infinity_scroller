@@ -50,7 +50,7 @@ RetroListView(
           ? InfiniteScrollStateType.error
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
-  itemBuilder: (context, index)=>//<Your item>
+  itemBuilder: (context, index)=>//Your item
 ),
       </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/loadmore.jpg" width=300></tr>
     <tr><td> <b>Android style refresh</b> </td></tr>
@@ -71,7 +71,7 @@ RetroListView(
       onRefresh: (){
         return Future.delayed(Duration(seconds: 2));
       },
-  itemBuilder: (context, index)=>//<Your item>
+  itemBuilder: (context, index)=>//Your item
 )
       </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/android_refresh.jpg" width=300></tr>
     <tr><td> <b>IOS style refresh</b> </td></tr>
@@ -96,7 +96,7 @@ RetroListView(
   onRefresh: (){
     return Future.delayed(Duration(seconds: 2));
   },
-  itemBuilder: (context, index)=>//<Your item>
+  itemBuilder: (context, index)=>//Your item
 )
       </pre></td><td><img src="https://github.com/SmarttersStudio/retro_infinity_scroller/blob/master/screenshots/ios_refresh.jpg" width=300></tr>
     <tr><td> <b>Custom error idget</b> </td></tr>

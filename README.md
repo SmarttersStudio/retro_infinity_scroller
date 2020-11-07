@@ -11,14 +11,16 @@ dependencies:
 ```
 
 - Import plugin class to your file
-```import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';```
+```
+import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';
+```
 
 
 <table>
   <tr><td> <b>Simple use</b> </td></tr>
   <tr>
     <td>
-      <code>
+      <pre>
 RetroListView(
   hasMore: false,
   itemCount: _photos.length,
@@ -58,7 +60,8 @@ RetroListView(
           ? InfiniteScrollStateType.error
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
-  refreshIndicatorType: RefreshIndicatorType.android, // To Implement Android Refresh Indicator
+  // To Implement Android Refresh Indicator
+  refreshIndicatorType: RefreshIndicatorType.android, 
       onRefresh: (){
         return Future.delayed(Duration(seconds: 2));
       },
@@ -81,7 +84,8 @@ RetroListView(
           ? InfiniteScrollStateType.error
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
-  refreshIndicatorType: RefreshIndicatorType.ios, // To Implement IOS Sliver refresh indicator
+  // To Implement IOS Sliver refresh indicator
+  refreshIndicatorType: RefreshIndicatorType.ios, 
   onRefresh: (){
     return Future.delayed(Duration(seconds: 2));
   },

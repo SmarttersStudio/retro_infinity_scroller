@@ -61,7 +61,7 @@ RetroListView(
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
   // To Implement Android Refresh Indicator
-  refreshIndicatorType: RefreshIndicatorType.android, 
+  refreshIndicatorType: RefreshIndicatorType.android,
       onRefresh: (){
         return Future.delayed(Duration(seconds: 2));
       },
@@ -75,9 +75,11 @@ RetroListView(
 RetroListView(
   hasMore: _hasMore,
   itemCount: _photos.length,
-  physics: BouncingScrollPhysics(), /// To be used in if running on Android Devices
+  /// To be used in if running on Android Devices
+  physics: BouncingScrollPhysics(),
  /// and [refreshIndicatorType]
- /// is [RefreshIndicatorType.ios] or [RefreshIndicatorType.custom]
+ /// is [RefreshIndicatorType.ios]
+ /// or [RefreshIndicatorType.custom]
   stateType: _loading
       ? InfiniteScrollStateType.loading
       : _error
@@ -85,7 +87,7 @@ RetroListView(
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
   // To Implement IOS Sliver refresh indicator
-  refreshIndicatorType: RefreshIndicatorType.ios, 
+  refreshIndicatorType: RefreshIndicatorType.ios,
   onRefresh: (){
     return Future.delayed(Duration(seconds: 2));
   },

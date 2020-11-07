@@ -32,35 +32,40 @@ class _LoadMoreInfinityScrollPageState
 
   @override
   Widget build(BuildContext context) {
-    return RetroListView(
-      hasMore: _hasMore,
-      itemCount: _photos.length,
-      stateType: _loading
-          ? InfiniteScrollStateType.loading
-          : _error
-              ? InfiniteScrollStateType.error
-              : InfiniteScrollStateType.loaded,
-      onLoadMore: () => fetchPhotos(), // Implements loadmore
-      itemBuilder: (ctx, position) {
-        return Card(
-          child: Column(
-            children: <Widget>[
-              Image.network(
-                _photos[position].thumbnailUrl,
-                fit: BoxFit.fitWidth,
-                width: double.infinity,
-                height: 160,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16),
-                child: Text(_photos[position].title,
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-              ),
-            ],
-          ),
-        );
-      },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Loadmore implementation'),
+      ),
+      body: RetroListView(
+        hasMore: _hasMore,
+        itemCount: _photos.length,
+        stateType: _loading
+            ? InfiniteScrollStateType.loading
+            : _error
+                ? InfiniteScrollStateType.error
+                : InfiniteScrollStateType.loaded,
+        onLoadMore: () => fetchPhotos(), // Implements loadmore
+        itemBuilder: (ctx, position) {
+          return Card(
+            child: Column(
+              children: <Widget>[
+                Image.network(
+                  _photos[position].thumbnailUrl,
+                  fit: BoxFit.fitWidth,
+                  width: double.infinity,
+                  height: 160,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Text(_photos[position].title,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 

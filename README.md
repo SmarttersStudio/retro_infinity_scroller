@@ -51,8 +51,7 @@ RetroListView(
           ? InfiniteScrollStateType.error
           : InfiniteScrollStateType.loaded,
   onLoadMore: () => fetchPhotos(), // Implements loadmore
-  refreshIndicatorType: RefreshIndicatorType
-      .android, // To Implement Android Refresh Indicator
+  refreshIndicatorType: RefreshIndicatorType.android, // To Implement Android Refresh Indicator
       onRefresh: (){
         return Future.delayed(Duration(seconds: 2));
       },

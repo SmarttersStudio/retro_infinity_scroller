@@ -1,6 +1,6 @@
 name: retro_infinity_scroll
 description: A Flutter plugin to implement infinity scroll and inflact paginated data into a ListView.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/SmarttersStudio/retro_infinity_scroller
 
 environment:

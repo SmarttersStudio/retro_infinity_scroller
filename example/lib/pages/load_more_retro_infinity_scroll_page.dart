@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:retro_infinity_scroll/enums.dart';
-import 'package:retro_infinity_scroll/retro_list_view.dart';
 import 'package:http/http.dart' as http;
+import 'package:retro_infinity_scroll/retro_infinity_scroll.dart';
 import 'package:retroinfinityscroll_example/models/photo.dart';
 
 /// A dummy implementation of plugin using loadmore only
@@ -36,7 +35,7 @@ class _LoadMoreInfinityScrollPageState
       appBar: AppBar(
         title: Text('Loadmore implementation'),
       ),
-      body: RetroListView(
+      body: RetroInfinityScroll(
         hasMore: _hasMore,
         itemCount: _photos.length,
         stateType: _loading

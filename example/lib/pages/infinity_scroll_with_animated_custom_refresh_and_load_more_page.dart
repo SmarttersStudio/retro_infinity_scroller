@@ -70,7 +70,7 @@ class _InfinityScrollWithAnimatedCustomRefreshAndLoadMorePageState
     );
     return Scaffold(
       appBar: AppBar(title: Text("With Animated Custom Refresh and loadmore")),
-      body: RetroListView(
+      body: RetroInfinityScroll(
         physics:
             BouncingScrollPhysics(), // To be used in if running on Android Devices
         // and [refreshIndicatorType]

@@ -33,7 +33,7 @@ class _InfinityScrollWithCustomRefreshAndLoadMorePageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("With Custom Refresh and loadmore")),
-      body: RetroListView(
+      body: RetroInfinityScroll(
         hasMore: _hasMore,
         itemCount: _photos.length,
         physics:

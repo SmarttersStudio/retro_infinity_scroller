@@ -33,7 +33,7 @@ class _InfinityScrollWithIosRefreshAndLoadMorePageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("With Ios Refresh and loadmore")),
-      body: RetroListView(
+      body: RetroInfinityScroll(
         hasMore: _hasMore,
         itemCount: _photos.length,
         physics:

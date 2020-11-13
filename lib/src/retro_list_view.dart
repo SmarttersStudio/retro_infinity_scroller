@@ -1,6 +1,6 @@
 part of retro_infinity_scroll;
 
-class RetroListView extends StatefulWidget {
+class RetroInfinityScroll extends StatefulWidget {
   final Axis scrollDirection;
   final bool reverse;
   final ScrollController controller;
@@ -86,7 +86,7 @@ class RetroListView extends StatefulWidget {
   final Function onRefresh;
   final Key key;
 
-  RetroListView(
+  RetroInfinityScroll(
       {this.key,
       this.scrollDirection = Axis.vertical,
       this.reverse = false,
@@ -129,10 +129,10 @@ class RetroListView extends StatefulWidget {
         super(key: key);
 
   @override
-  _RetroListViewState createState() => _RetroListViewState();
+  _RetroInfinityScrollState createState() => _RetroInfinityScrollState();
 }
 
-class _RetroListViewState extends State<RetroListView> {
+class _RetroInfinityScrollState extends State<RetroInfinityScroll> {
   ///A Scroll Controller to manage the scroll to implement the [widget.onLoadMore] callback
   ScrollController _controller;
 

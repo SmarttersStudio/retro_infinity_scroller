@@ -30,7 +30,7 @@ class _InfinityScrollWithIosRefreshPageState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("With IOS Refresh")),
-      body: RetroListView(
+      body: RetroInfinityScroll(
         hasMore: false,
         physics:
             BouncingScrollPhysics(), // To be used in if running on Android Devices

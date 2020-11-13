@@ -29,7 +29,7 @@ class _SimpleRetroInfinityPageState extends State<SimpleRetroInfinityPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Without Refresh and loadmore")),
-      body: RetroListView(
+      body: RetroInfinityScroll(
         hasMore: false,
         itemCount: _photos.length,
         stateType: _loading

@@ -13,11 +13,11 @@ class InfinityScrollWithAndroidRefreshAndLoadMorePage extends StatefulWidget {
 
 class _InfinityScrollWithAndroidRefreshAndLoadMorePageState
     extends State<InfinityScrollWithAndroidRefreshAndLoadMorePage> {
-  bool _hasMore; // determines if more to load
-  bool _error;
-  bool _loading;
+  bool _hasMore = true; // determines if more to load
+  bool _error = false;
+  bool _loading = true;
   final int _limit = 10; // max count of data to show on the list
-  List<Photo> _photos;
+  List<Photo> _photos = [];
 
   @override
   void initState() {

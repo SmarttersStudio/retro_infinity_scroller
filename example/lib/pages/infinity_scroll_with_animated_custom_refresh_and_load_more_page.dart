@@ -17,28 +17,28 @@ class InfinityScrollWithAnimatedCustomRefreshAndLoadMorePage
 class _InfinityScrollWithAnimatedCustomRefreshAndLoadMorePageState
     extends State<InfinityScrollWithAnimatedCustomRefreshAndLoadMorePage>
     with SingleTickerProviderStateMixin {
-  bool _hasMore; // determines if more to load
-  bool _error;
-  bool _loading;
+  bool _hasMore = true; // determines if more to load
+  bool _error = false;
+  bool _loading = true;
   final int _limit = 10; // max count of data to show on the list
-  List<Photo> _photos;
+  List<Photo> _photos = [];
   static final _logoTween = CurveTween(curve: Curves.easeInOut);
-  AnimationController _logoController;
-  RefreshIndicatorMode _prevState;
+  AnimationController? _logoController;
+  RefreshIndicatorMode? _prevState;
 
   void _startLogoAnimation() {
-    _logoController.repeat(reverse: true);
+    _logoController!.repeat(reverse: true);
   }
 
   void _stopLogoAnimation() {
-    _logoController
+    _logoController!
       ..stop()
       ..animateTo(0.0, duration: Duration(milliseconds: 100));
   }
 
   @override
   void dispose() {
-    _logoController.dispose();
+    _logoController!.dispose();
     super.dispose();
   }
 
@@ -59,12 +59,12 @@ class _InfinityScrollWithAnimatedCustomRefreshAndLoadMorePageState
   @override
   Widget build(BuildContext context) {
     final plane = AnimatedBuilder(
-      animation: _logoController,
+      animation: _logoController!,
       child: Lottie.asset('assets/refresh_anim.json', animate: true),
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext? context, Widget? child) {
         return Transform.translate(
             offset: Offset(
-                0.0, 10 * (0.5 - _logoTween.transform(_logoController.value))),
+                0.0, 10 * (0.5 - _logoTween.transform(_logoController!.value))),
             child: child);
       },
     );

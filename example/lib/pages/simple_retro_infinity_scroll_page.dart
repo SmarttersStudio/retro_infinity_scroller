@@ -12,9 +12,9 @@ class SimpleRetroInfinityPage extends StatefulWidget {
 }
 
 class _SimpleRetroInfinityPageState extends State<SimpleRetroInfinityPage> {
-  bool _error;
-  bool _loading;
-  List<Photo> _photos;
+  bool _error = false;
+  bool _loading = false;
+  List<Photo> _photos = [];
 
   @override
   void initState() {

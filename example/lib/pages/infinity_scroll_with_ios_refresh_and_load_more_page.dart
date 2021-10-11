@@ -13,11 +13,11 @@ class InfinityScrollWithIosRefreshAndLoadMorePage extends StatefulWidget {
 
 class _InfinityScrollWithIosRefreshAndLoadMorePageState
     extends State<InfinityScrollWithIosRefreshAndLoadMorePage> {
-  bool _hasMore; // determines if more to load
-  bool _error;
-  bool _loading;
+  bool _hasMore = false; // determines if more to load
+  bool _error = false;
+  bool _loading = false;
   final int _limit = 10; // max count of data to show on the list
-  List<Photo> _photos;
+  List<Photo> _photos = [];
 
   @override
   void initState() {

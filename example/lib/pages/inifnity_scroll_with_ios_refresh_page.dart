@@ -13,9 +13,9 @@ class InfinityScrollWithIosRefreshPage extends StatefulWidget {
 
 class _InfinityScrollWithIosRefreshPageState
     extends State<InfinityScrollWithIosRefreshPage> {
-  bool _error;
-  bool _loading;
-  List<Photo> _photos;
+  bool _error = false;
+  bool _loading = false;
+  List<Photo> _photos = [];
 
   @override
   void initState() {

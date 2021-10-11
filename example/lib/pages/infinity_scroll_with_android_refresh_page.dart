@@ -13,9 +13,9 @@ class InfinityScrollWithAndroidRefreshPage extends StatefulWidget {
 
 class _InfinityScrollWithAndroidRefreshPageState
     extends State<InfinityScrollWithAndroidRefreshPage> {
-  bool _error;
-  bool _loading;
-  List<Photo> _photos;
+  bool _error = false;
+  bool _loading = true;
+  List<Photo> _photos = [];
 
   @override
   void initState() {

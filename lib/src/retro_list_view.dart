@@ -1,65 +1,65 @@
 part of retro_infinity_scroll;
 
 class RetroInfinityScroll extends StatefulWidget {
-  final Axis scrollDirection;
-  final bool reverse;
-  final ScrollController controller;
-  final bool primary;
-  final bool shrinkWrap;
-  final ScrollPhysics physics;
-  final EdgeInsetsGeometry padding;
-  final IndexedWidgetBuilder itemBuilder;
-  final int itemCount;
-  final bool addAutomaticKeepAlives;
-  final bool addRepaintBoundaries;
-  final bool addSemanticIndexes;
-  final double cacheExtent;
-  final int semanticChildCount;
-  final DragStartBehavior dragStartBehavior;
-  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
-  final String restorationId;
-  final Clip clipBehavior;
+  final Axis? scrollDirection;
+  final bool? reverse;
+  final ScrollController? controller;
+  final bool? primary;
+  final bool? shrinkWrap;
+  final ScrollPhysics? physics;
+  final EdgeInsetsGeometry? padding;
+  final IndexedWidgetBuilder? itemBuilder;
+  final int? itemCount;
+  final bool? addAutomaticKeepAlives;
+  final bool? addRepaintBoundaries;
+  final bool? addSemanticIndexes;
+  final double? cacheExtent;
+  final int? semanticChildCount;
+  final DragStartBehavior? dragStartBehavior;
+  final ScrollViewKeyboardDismissBehavior? keyboardDismissBehavior;
+  final String? restorationId;
+  final Clip? clipBehavior;
 
   /// To Display an empty screen when the list is empty
   ///
   /// Defaults to yielding a [Text] wrapped with [Center] with Text ['No Data Found']
-  final Widget emptyWidget;
+  final Widget? emptyWidget;
 
   /// To Display an error screen when any sort of error is fetched from the API
   ///
   /// Defaults to yielding a [Text] wrapped with [Center] with Text ['Some error occurred']
-  final Widget errorWidget;
+  final Widget? errorWidget;
 
   /// To Display a loading screen when the data is getting fetched from the API
   ///
   /// Defaults to yielding a [CircularProgressIndicator] wrapped with [Center]
-  final Widget loadingWidget;
+  final Widget? loadingWidget;
 
   /// To Display a loading widget below the last row of the list
   /// when the more data is getting fetched
   ///
   /// Defaults to yielding a [CircularProgressIndicator] wrapped with [Center]
-  final Widget loadMoreWidget;
+  final Widget? loadMoreWidget;
 
   /// Set true if you have more data to load
   /// else set false
   /// Make sure to implement the property as it is a
   /// [Required Parameter]
-  final bool hasMore;
-  final double itemExtent;
+  final bool? hasMore;
+  final double? itemExtent;
 
   /// Function to handle load more
   /// It is fired when the user reaches the last tile of the list by scrolling
   /// No @params required
   /// Api call to load more should be handled inside this callback
-  final Function onLoadMore;
+  final Function? onLoadMore;
 
   /// Enumerated [InfiniteScrollStateType] to be used
   /// It determines the current state of the list
   /// For Example if currently your data is getting fetched and you're waiting
   /// then set the state as [InfiniteScrollStateType.loading]
   /// Make sure to implement the property as it is a ['Required Parameter']
-  final InfiniteScrollStateType stateType;
+  final InfiniteScrollStateType? stateType;
 
   /// Enumerated [RefreshIndicatorType] to be used
   /// It determines the type of Refresh Indicator you want to use
@@ -72,19 +72,19 @@ class RetroInfinityScroll extends StatefulWidget {
   /// pass the [refreshIndicatorType] as [RefreshIndicatorType.android], same for ios
   /// as [RefreshIndicatorType.ios] and for
   /// custom as [RefreshIndicatorType.custom] and must pass the [refreshIndicatorBuilder]
-  final RefreshIndicatorType refreshIndicatorType;
+  final RefreshIndicatorType? refreshIndicatorType;
 
   ///Only to be used if you're using the [refreshIndicatorType] as [RefreshIndicatorType.custom]
   /// Signature for a builder that can create a different widget to show in the
   /// refresh indicator space depending on the current state of the refresh
   /// control and the space available.
-  final RefreshControlIndicatorBuilder refreshIndicatorBuilder;
+  final RefreshControlIndicatorBuilder? refreshIndicatorBuilder;
 
   /// A function that's called when the user has dragged the refresh indicator
   /// far enough to demonstrate that they want the app to refresh. The returned
   /// [Future] must complete when the refresh operation is finished.
-  final Function onRefresh;
-  final Key key;
+  final Function? onRefresh;
+  final Key? key;
 
   RetroInfinityScroll(
       {this.key,
@@ -134,7 +134,7 @@ class RetroInfinityScroll extends StatefulWidget {
 
 class _RetroInfinityScrollState extends State<RetroInfinityScroll> {
   ///A Scroll Controller to manage the scroll to implement the [widget.onLoadMore] callback
-  ScrollController _controller;
+  ScrollController? _controller;
 
   ///Determines the extent to which the indicator can be dragged
   static const _offsetToArmed = 100.0;
@@ -143,9 +143,9 @@ class _RetroInfinityScrollState extends State<RetroInfinityScroll> {
   void initState() {
     super.initState();
     _controller = widget.controller ?? ScrollController();
-    _controller.addListener(() {
-      if (_controller.position.maxScrollExtent == _controller.position.pixels &&
-          widget.hasMore) {
+    _controller!.addListener(() {
+      if (_controller!.position.maxScrollExtent == _controller!.position.pixels &&
+          widget.hasMore!) {
         // The user has scrolled to the list tile of the list and if
         // there is more to load
         // onLoadMore function is called
@@ -156,7 +156,7 @@ class _RetroInfinityScrollState extends State<RetroInfinityScroll> {
 
   @override
   void dispose() {
-    if (widget.controller == null) _controller.dispose();
+    if (widget.controller == null) _controller!.dispose();
     super.dispose();
   }
 
@@ -231,29 +231,29 @@ class _RetroInfinityScrollState extends State<RetroInfinityScroll> {
           ListView.builder(
             key: widget.key,
             itemBuilder: (ctx, index) {
-              if (index == widget.itemCount && widget.hasMore)
+              if (index == widget.itemCount && widget.hasMore!)
                 // returns the loadmore widget when the loadmore is in progress
                 return widget.loadMoreWidget ??
                     Center(child: CircularProgressIndicator());
-              return widget.itemBuilder?.call(ctx, index);
+              return widget.itemBuilder.call!(ctx, index);
             },
-            itemCount: widget.itemCount + (widget.hasMore ? 1 : 0),
+            itemCount: widget.itemCount! + (widget.hasMore! ? 1 : 0),
             padding: widget.padding,
             physics:
                 isScrollable ? widget.physics : NeverScrollableScrollPhysics(),
-            shrinkWrap: isScrollable ? widget.shrinkWrap : true,
-            scrollDirection: widget.scrollDirection,
-            addAutomaticKeepAlives: widget.addAutomaticKeepAlives,
-            addRepaintBoundaries: widget.addRepaintBoundaries,
+            shrinkWrap: isScrollable ? widget.shrinkWrap! : true,
+            scrollDirection: widget.scrollDirection!,
+            addAutomaticKeepAlives: widget.addAutomaticKeepAlives!,
+            addRepaintBoundaries: widget.addRepaintBoundaries!,
             controller: isScrollable ? _controller : null,
-            addSemanticIndexes: widget.addSemanticIndexes,
+            addSemanticIndexes: widget.addSemanticIndexes!,
             cacheExtent: widget.cacheExtent,
             // clipBehavior: widget.clipBehavior,
-            dragStartBehavior: widget.dragStartBehavior,
-            keyboardDismissBehavior: widget.keyboardDismissBehavior,
+            dragStartBehavior: widget.dragStartBehavior!,
+            keyboardDismissBehavior: widget.keyboardDismissBehavior!,
             primary: widget.primary,
             // restorationId: widget.restorationId,
-            reverse: widget.reverse,
+            reverse: widget.reverse!,
             semanticChildCount: widget.semanticChildCount,
             itemExtent: widget.itemExtent,
           ));
